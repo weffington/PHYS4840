@@ -1,0 +1,5 @@
+# Problem 1b
+To obtain a good approximation for vega.csv, one needs to create equally space intervals specifically for the Simpson and Romberg approximations. One can do this by creating a linear interpolant function to obtain a data set with equally space intervals.
+
+# Problem 2
+There are many applications to integral approximations across the field of physics. The following is a simple but interesting example of just one application. Say you are travelling in a moving vehicle and measuring the acceleration of the vehicle via an accelerometer. You want to find the average velocity of the vehicle over a given time period. You can only measure the acceleration of the vehicle a finite amount of times over a given time period, so the acceleration of the vehicle as a function of time will be discontinuous. One can apply an integral approximation method to calculate the average velocity given two periods of time. If one wants to obtain an accurate value for the average velocity, one can use Romberg quadrature. On the other hand, if you have many data points over a large time period, then one can use Simpsons method for fast computational time.
