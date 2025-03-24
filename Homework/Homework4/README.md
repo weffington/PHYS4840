@@ -33,13 +33,7 @@ $$e^{(a-1)\ln{x}-x}.$$
 
 # Problem 3
 ## 1.
-A property of real matrices is that, for some matrix $A$ and vectors $\textbf{v}$ and $\textbf{b}$, the equation $A\textbf{v}=\textbf{b}$ has a unique solution if and only if $\det{A} \neq 0$. For this problem's particular matrix,
-$$\begin{vmatrix}
-1 & 0 & 0 & 0 \\
-0 & 1 & 1 & -1 \\
-0 & 2 & 4 & 0 \\
-0 & 2 & -1 & 2 \\
-\end{vmatrix} = 14$$
+A property of real matrices is that, for some matrix $A$ and vectors $\textbf{v}$ and $\textbf{b}$, the equation $A\textbf{v}=\textbf{b}$ has a unique solution if and only if $\det{A} \neq 0$. For this problem's particular matrix, its determinant is 14.
 Thus, our system of linear equations in this problem does in fact have a unique solution.
 
 # Problem 4
