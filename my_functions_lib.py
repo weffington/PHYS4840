@@ -1,4 +1,4 @@
-#!/usr/bin/python3.10.12
+#!/usr/bin/python3.8.10
 import numpy as np
 def myFunction(vector):
     a = vector[0]
@@ -91,3 +91,29 @@ def qr_decomposition(A):
         Q[:, j] = v / R[j, j]  # Normalize
 
     return Q, R
+
+def lu_decomposition(A):
+    N = len(A)
+
+    # Initialize L as the N=4 identity matrix 
+    L = np.array([[1.0 if i == j else 0.0 for j in range(N)] for i in range(N)])
+    # this above is just a more explicit way of doing
+    #L = np.identity(N)
+
+
+    # initalize U as a copy of A
+    U = A.copy()
+
+
+    ## this double loop will transform L
+    ## into the lower-diagonal form we need
+    for m in range(N):
+        for i in range(m+1, N):        
+        
+            # Compute the multiplier for the current row operation
+            L[i, m] = U[i, m] / U[m, m]
+        
+            # Subtract the appropriate multiple of the pivot row from the current row
+            U[i, :] -= L[i, m] * U[m, :]
+
+    return L, U
