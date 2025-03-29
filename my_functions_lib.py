@@ -117,3 +117,16 @@ def lu_decomposition(A):
             U[i, :] -= L[i, m] * U[m, :]
 
     return L, U
+
+def euler_method(f, x0, t0, t_end, dt): 
+    #define range of t values using step size dt
+    t_values=np.arange(t0, t_end+dt,dt)
+    #define 0 array for future x values
+    x_values=np.zeros(len(t_values))
+    #initial condition
+    x_values[0]=x0
+    #iterate using euler's method to get x values
+    for i in range(1, len(t_values)):
+        x_values[i]=x_values[i-1] + dt * f(x_values[i-1], t_values[i-1])
+    #return approximation for x(t) and corresponding t values
+    return t_values, x_values
