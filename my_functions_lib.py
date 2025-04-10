@@ -130,3 +130,33 @@ def euler_method(f, x0, t0, t_end, dt):
         x_values[i]=x_values[i-1] + dt * f(x_values[i-1], t_values[i-1])
     #return approximation for x(t) and corresponding t values
     return t_values, x_values
+
+def RK2(f, x0, t0, t_end, dt):
+    t_values = np.arange(t0, t_end + dt, dt)
+    x_values = np.zeros(len(t_values))
+    x_values[0] = x0
+
+    for i in range(1, len(t_values)):
+        t = t_values[i - 1]
+        x = x_values[i - 1]
+        k1 = dt*f(x,t)
+        k2 = dt*f(x+0.5*k1, t+0.5*dt)
+        x_values[i] = x + k2
+
+    return t_values, x_values
+
+def RK4(f, x0, t0, t_end, dt):
+    t_values = np.arange(t0, t_end + dt, dt)
+    x_values = np.zeros(len(t_values))
+    x_values[0] = x0
+
+    for i in range(1, len(t_values)):
+        t = t_values[i - 1]
+        x = x_values[i - 1]
+        k1 = dt*f(x,t)
+        k2 = dt*f(x+0.5*k1,t+0.5*dt)
+        k3 = dt*f(x+0.5*k2,t+0.5*dt)
+        k4 = dt*f(x+k3,t+dt)
+        x_values[i] = x + (k1+2*k2+2*k3+k4)/6
+
+    return t_values, x_values
