@@ -160,3 +160,24 @@ def RK4(f, x0, t0, t_end, dt):
         x_values[i] = x + (k1+2*k2+2*k3+k4)/6
 
     return t_values, x_values
+
+def laplacian_operator(Phi, dx, dy, dz):
+    """
+    Compute the Laplacian of a scalar field Phi (i.e., apply the Poisson operator)
+    using central finite differences on a 3D uniform grid.
+
+    Parameters:
+    - Phi : 3D numpy array of shape (nx, ny, nz)
+    - dx, dy, dz : grid spacings in x, y, z directions
+
+    Returns:
+    - laplacian : 3D numpy array of the same shape as Phi
+    """
+
+    laplacian = (
+        (np.roll(Phi, -1, axis=0) - 2*Phi + np.roll(Phi, 1, axis=0)) / dx**2 +
+        (np.roll(Phi, -1, axis=1) - 2*Phi + np.roll(Phi, 1, axis=1)) / dy**2 +
+        (np.roll(Phi, -1, axis=2) - 2*Phi + np.roll(Phi, 1, axis=2)) / dz**2
+    )
+
+    return laplacian
