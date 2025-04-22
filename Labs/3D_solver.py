@@ -3,7 +3,7 @@
 #
 # Class 23: PDEs I: 3D Laplace Solver
 # Author: Adapted by M Joyce from Mark Newman
-#
+# Edits made by Noah Hampton
 #####################################
 import numpy as np
 import matplotlib.pyplot as plt
