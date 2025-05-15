@@ -15,7 +15,7 @@ PHYS 4840 - Mathematical and Computational Methods II
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-import fourier_series as fs
+import Labs.fourier_series as fs
 
 
 def do_fourier(TERMS, wave):
